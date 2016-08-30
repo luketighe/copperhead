@@ -1,7 +1,7 @@
-from lib.market_data_subscriber import MarketDataSubscriber    
+from src.market_data_subscriber import MarketDataSubscriber    
    
         
-class StrategyComposer():
+class Composer():
     
     def __init__(self, strategy, marketDataSubscriber):
         'Will compose the strategy'
