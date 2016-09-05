@@ -1,4 +1,4 @@
-from src.market_data_subscriber import MarketDataSubscriber    
+from src.market_data import MarketData    
    
         
 class Composer():
@@ -18,3 +18,4 @@ class Composer():
         
     def start(self):
         'Subscribe etc'
+        self.marketDataSubscriber.start()
