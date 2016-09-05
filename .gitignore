@@ -109,3 +109,8 @@ $RECYCLE.BIN/
 *.lnk
 
 .vscode/launch.json
+.idea/misc.xml
+.idea/tomahawk-blackbox.iml
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml

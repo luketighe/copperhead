@@ -1,21 +1,20 @@
-from src.market_data import MarketData    
-   
+
         
-class Composer():
+class Composer:
     
-    def __init__(self, strategy, marketDataSubscriber):
-        'Will compose the strategy'
+    def __init__(self, strategy, feed):
+        """Will compose the strategy"""
         if strategy is None:
             raise TypeError                   
 
-        if marketDataSubscriber is None:
+        if feed is None:
             raise TypeError        
         
-        self.marketDataSubscriber = marketDataSubscriber        
+        self.feed = feed
         
         'subscribe to the market data'
-        self.marketDataSubscriber.onBarUpdate += strategy.on_bar_update()
+        self.feed.onBarUpdate += strategy.on_bar_update()
         
     def start(self):
-        'Subscribe etc'
-        self.marketDataSubscriber.start()
+        """Subscribe etc"""
+        self.feed.start()

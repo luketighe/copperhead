@@ -1,13 +1,20 @@
 import unittest
-from ...copperhead.src.market_data import MarketData
+from unittest.mock import *
+from copperhead.src.feed import FeedBase
+
 
 class TestMarketData(unittest.TestCase):
 
-    def test_market_data_fire_event(self):
+    def test_feed_fire_event(self):
 
-        """arrange"""
+        # arrange
+        feed = FeedBase()
+        subscriber_mock = Mock()
+        subscriber_mock.method = MagicMock()
+        feed.onBarUpdate += subscriber_mock.method
 
-        """act"""
-        market_data = MarketData()
+        # act
+        feed.new_bar(1)
 
-        """assert"""
+        # assert
+        self.assertEquals(1, subscriber_mock.method.call_count)

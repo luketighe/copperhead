@@ -1,9 +1,10 @@
-from ..util.eventhook import EventHook
+from ..util import eventhook
 
-class MarketData(object):
-    
+
+class FeedBase(object):
+
     def __init__(self):
-        self.onBarUpdate = EventHook()
+        self.onBarUpdate = eventhook.EventHook()
 
     def new_bar(self, bar):
         self.onBarUpdate.fire(self, bar=bar)
@@ -12,7 +13,8 @@ class MarketData(object):
         """override this method and call new_bar to raise onBarUpdate event"""
         print("Market data has not been implemented")
 
-class CsvMarketData(MarketData):
+
+class CsvMarketData(FeedBase):
 
     def __init__(self):
         """init base class"""
@@ -24,5 +26,4 @@ class CsvMarketData(MarketData):
         """iterate bars"""
 
         """raise call new_bar method"""
-        new_bar(None)
-        
+        super(CsvMarketData).new_bar(None)
