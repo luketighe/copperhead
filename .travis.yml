@@ -1,9 +1,11 @@
+sudo: required
 language: python
 python:
   - "3.5"
+install:
 
-# command to run tests
 script: nosetests
+  - sudo pip install coveralls
 
 after_success:
   - coveralls
