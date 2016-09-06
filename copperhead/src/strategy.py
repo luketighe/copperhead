@@ -1,4 +1,4 @@
-class StrategyBase:
+class StrategyBase(object):
     
     def __init__(self, config):
         'Strategy base class'

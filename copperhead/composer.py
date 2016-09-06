@@ -1,6 +1,6 @@
 
         
-class Composer:
+class Composer(object):
     
     def __init__(self, strategy, feed):
         """Will compose the strategy"""
